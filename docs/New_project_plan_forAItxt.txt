@@ -1,119 +1,78 @@
-# "Hai" the Health Coach - Project Overview
+# Project Status Report - Hai the Health Coach
 
-## Introduction
-"Hai" the Health Coach is an AI-powered health tracking system that uses a Telegram bot for user interaction. The system is designed to provide a comprehensive solution for tracking and analyzing health data, with a focus on user experience and data privacy.
+**Date:** 3/11/24
 
-## Software Stack and Technologies
+## Accomplishments to Date:
 
-- **Frontend:** 
-  - Telegram Bot Interface for user interaction.
+1. **Project Initialization**
+   - Created a new Python virtual environment named `new_hai`.
+   - Set up a new GitHub repository and synced it with local development using Git CLI.
+   - Initialized the project directory structure with folders for `docs`, `src`, and `tests`.
 
-- **Backend:** 
-  - Python for logic and data processing.
+2. **Telegram Bot Setup**
+   - Registered a new bot on Telegram via BotFather and retrieved the API token.
+   - Installed the `python-telegram-bot` library to interact with the Telegram API.
+   - Installed `python-dotenv` for environment variable management.
 
-- **Database:** 
-  - MongoDB for storing user data and responses, known for its flexibility with unstructured data.
+3. **Basic Bot Functionality**
+   - Created `main.py` within the `src` directory as the entry point for the bot.
+   - Implemented a basic `/start` command for the bot to greet users.
+   - Set up an environment variable `TELEGRAM_TOKEN` to securely store the API token.
+   - Ensured sensitive files like `.env` are listed in `.gitignore` to prevent them from being pushed to GitHub.
 
-- **NLP Libraries:** 
-  - NLTK and spaCy for natural language processing to enhance the bot's ability to analyze user inputs.
+4. **Docker Integration**
+   - Integrated Docker to ensure consistency across development, testing, and production environments.
+   - Added `Dockerfile` and `docker-compose.yaml` for containerization and easy deployment.
 
-- **Data Analysis and Visualization:** 
-  - Pandas for data manipulation and analysis.
-  - Matplotlib and Seaborn for visual insights in weekly email summaries.
+5. **Bot Functional Enhancements**
+   - Updated the bot to interact with OpenAI's GPT-4 for natural language processing, enhancing conversational capabilities.
+   - Implemented functionality to handle both text and audio messages.
+   - **New**: The bot now starts asking initial health questions as part of the conversation flow.
 
-## Key Features and Implementation Plan
+6. **GitHub Version Control**
+   - Pushed updates to GitHub, ensuring all changes are version-controlled.
+   - Created a new branch `feature_initial_interview` for developing the initial interview feature without affecting the main codebase.
 
-- **Initial Setup:**
-  - Develop the Telegram bot interface for user interactions and integrate with the Python backend processes.
+## Next Steps:
 
-- **User Onboarding:**
-  - Conduct initial interviews using dynamic questioning to establish baseline health data.
+1. **Expand Bot Commands**
+   - Implement additional bot commands (`/help`, `/checkin`, etc.).
+   - Develop a system for the bot to handle more complex interactions, possibly with `ConversationHandler`.
+   - edit bot commands so interview continues
+	-currently only asking "how's your health overall" and then asking "is there anything else youd like to add?"
 
-- **Daily Follow-ups:**
-  - Employ structured and open-ended questions to track health, leveraging NLP for response analysis.
+2. **Initial Interview Implementation**
+   - Incorporate the initial interview questions into the bot's conversation flow, leveraging GPT-4 for dynamic question generation and follow-ups.
 
-- **Data Privacy and Security:**
-  - Ensure end-to-end encryption for data in transit and at rest, compliance with data protection laws, and strict access controls.
+3. **Data Storage**
+   - Decide on a database system (e.g., SQLite for simplicity, PostgreSQL for robustness) for storing user data and conversation states.
+   - Create models and schemas for the required data.
+   - Implement data persistence for bot conversations and user data.
 
-- **Weekly Summaries:**
-  - Perform data analysis to find correlations and insights. Create visual representations for personalized email summaries.
+4. **Periodic Notifications and Reporting**
+   - Set up a job queue to send periodic reminders and health reports to users.
 
-- **Feedback Loop:**
-  - Introduce a user feedback mechanism to enhance the AI's accuracy and relevance.
+5. **Testing and Quality Assurance**
+   - Write unit tests for individual bot functionalities.
+   - Create integration tests to simulate user interactions with the bot.
 
-- **Consensus Check System:**
-  - Implement a double-check on data analysis using two independent models before sending weekly summaries.
+6. **Documentation**
+   - Document the bot's features, usage instructions, setup process, and contribution guidelines in the `docs` folder.
 
-## Steps to Complete the Project
+7. **User Feedback**
+   - Deploy a minimum viable product (MVP) to a small group of test users.
+   - Collect feedback and iterate on the bot features based on user input.
 
-1. **Environment Setup:**
-   - Install Python, MongoDB, and libraries like NLTK, spaCy, Pandas, Matplotlib, and Seaborn.
+8. **Deployment**
+   - Prepare for deployment to a cloud platform for continuous uptime.
+   - Set up a CI/CD pipeline if necessary for automated testing and deployment.
 
-2. **Bot Development:**
-   - Construct the Telegram bot to process user inputs and manage interactions.
+9. **Continuous Development**
+   - Continue developing features, refining the bot based on user feedback.
+   - Keep the documentation updated as the project evolves.
 
-3. **Database Integration:**
-   - Configure MongoDB to store user data, daily inputs, and analysis results efficiently.
+## Additional Considerations:
 
-4. **NLP Implementation:**
-   - Integrate NLTK and spaCy to enable the bot to process natural language.
-
-5. **Data Analysis Module:**
-   - Develop algorithms for analyzing user data and generating insights.
-
-6. **Privacy Measures:**
-   - Implement security protocols for data handling and privacy protection.
-
-7. **Testing and Iteration:**
-   - Test all aspects of the system thoroughly and refine based on the outcomes.
-
-8. **Launch and Monitoring:**
-   - Deploy the bot and establish monitoring procedures to ensure smooth operations.
-
-## UX Considerations
-
-- **User Onboarding:** 
-  - Provide a clear and friendly setup process.
-
-- **Interaction Design:** 
-  - Create conversational flows that are natural and engaging.
-
-- **Feedback Mechanisms:** 
-  - Implement immediate responses to user inputs.
-
-- **Error Handling and Guidance:** 
-  - Offer constructive error messages and guidance.
-
-- **Accessibility:** 
-  - Ensure the bot is usable by a diverse user base.
-
-- **Personalization:** 
-  - Allow users to customize their interaction and information received.
-
-## MVP with GPT-4 Integration
-
-- **Enhanced User Onboarding:**
-  - Use GPT-4 to facilitate a natural initial interview.
-
-- **Interactive Daily Symptom Tracking:**
-  - Utilize GPT-4 for daily health data collection through the Telegram bot.
-
-- **Data Storage:**
-  - Maintain a secure database to store structured data parsed by GPT-4.
-
-- **Weekly Insights Generation:**
-  - Leverage GPT-4 to create narrative summaries of health data.
-
-- **Privacy and Data Security:**
-  - Emphasize secure data handling and compliance with privacy laws.
-
-## Considerations for GPT-4 Integration
-
-- **Token Consumption:** 
-  - Optimize GPT-4 interactions to manage operational costs effectively.
-
-- **Data Privacy Compliance:** 
-  - Adhere to privacy regulations when processing personal health information.
-
-- **Quality Control:** 
-  - Establish a review process for the accuracy and relevance of GPT-4 outputs.
+- **Security:** Ensure all user data is handled securely and complies with privacy laws.
+- **Scalability:** Design the bot's architecture to handle an increasing number of users as the project grows.
+- **Monitoring and Maintenance:** Establish a system for monitoring the bot's health and uptime and for performing regular maintenance.

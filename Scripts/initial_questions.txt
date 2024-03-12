@@ -1,0 +1,27 @@
+For the initial interview updates, incorporating the enhancements discussed involves dynamically adapting questions based on responses, employing conversational language, introducing follow-up questions for clarity, encouraging detailed responses, reassuring users about their privacy, and ending with a message of ongoing support. These updates aim to make the bot more engaging, insightful, and trusted by users.
+
+Welcome Message & Privacy Assurance: "Welcome to Hai, your health coach! Before we begin, know that your privacy is paramount to us. All information shared is strictly confidential."
+
+General Health Inquiry: "How have you been feeling overall? Remember, you can be open with me; it's all private."
+
+Sleep Quality: "How well did you sleep last night? Feel free to use any terms or examples to describe your sleep quality."
+
+Exercise Routine: "Tell me about your exercise routine. Have there been any changes or anything new you've tried?"
+
+Mental Health Check: "How's your mood been lately? If you're comfortable, share how you've been feeling emotionally."
+
+Stress Levels: "On a scale from 1 to 10, how would you rate your stress levels recently?"
+
+Health Goals Discussion: "Let's talk about your health goals. What specific areas would you like to focus on or improve?"
+
+Custom Questions Based on Conditions: If the user mentions specific health conditions, the bot could ask, "I noticed you mentioned [condition]. Would you like to track anything specific related to this?"
+
+Feedback Request: "Is there anything else you'd like to track or any suggestions on how I can assist you better?"
+
+Ok great! I'll follow up every day to cehck in on how everythings going, then send you an email
+each week with any patterns I've noticed. It's important to remember that Im not a doctor 
+and what I say is just a direction, not a diagnosis. I'm helpful to spot patterns that are 
+easy for us to miss in our busy lives. If anything I say feels right, best to follow up with your doctor.  
+
+Congrats on taking the first step to better health! Its been great meeting you and looking forward
+to talking tomorrow!

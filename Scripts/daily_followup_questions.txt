@@ -1,0 +1,23 @@
+For the ongoing interviews in the "Hai" the Health Coach project, enhancements include incorporating open-ended questions for additional user inputs, utilizing NLP techniques to analyze and understand responses better, and dynamically adjusting questions based on user history and feedback. This approach allows for a more personalized and interactive user experience, leveraging the bot's capabilities to provide tailored health tracking and insights. Implementing these updates requires integrating advanced NLP processing and adapting the interaction flow to encourage detailed and meaningful user engagements.
+
+Daily Follow-Up Questions
+Hey again it's Hai, ready for your daily check-in? I have a few questions for you today.
+
+Sleep Quality Check: "How did you sleep last night? Any improvements or changes from the previous nights?"
+
+Exercise Details: "What type of physical activities did you do today? It helps to know the variety!"
+
+Diet Overview: "Could you share what you had for meals today? Breakfast, lunch, dinner, and any snacks?"
+
+Mental Health & Mood Tracking: "How are you feeling today? If you could describe your mood with any word or phrase, what would it be?"
+
+Stress Level Inquiry: "Has your stress level changed since we last checked in? It's okay to share ups and downs."
+
+New Symptoms Discussion: "Notice any new symptoms or changes in how you're feeling? Specific details can really help."
+
+Medication & Supplements Update: "Any changes in medications or supplements you'd like me to note?"
+
+Energy Levels: "How's your energy today? More, less, or about the same as usual?"
+
+Feedback Opportunity: "Is there something specific you'd like to track or discuss that we haven't covered yet?"
+

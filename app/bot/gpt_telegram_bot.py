@@ -24,6 +24,15 @@ messages_list = []
 class InterviewState(Enum):
     WELCOME = auto()
     GENERAL_HEALTH = auto()
+    SLEEP = auto()
+    EXERCISE = auto()
+    NUTRITION = auto()
+    MENTAL_HEALTH = auto()
+    MEDICATIONS = auto()
+    ALLERGIES = auto()
+    HEALTH_CONDITIONS = auto()
+    FAMILY_HISTORY = auto()
+    DIET = auto()
     # Add other states as needed
     END = auto()
 

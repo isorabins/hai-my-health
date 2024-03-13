@@ -88,10 +88,25 @@
 - **Bot Behavior Modification**: Improved the bot's conversational state management to handle the interview process more smoothly.
 - **Local Testing**: Addressed issues with local environment setup to facilitate rapid development and testing outside of Docker.
 - **Git Operations**: Explored methods for pulling specific file versions from GitHub to revert changes or analyze previous states of the bot.
+## Integration with CrewAI
+- Implemented CrewAI to structure user interactions for health tracking within the Telegram bot. This allows for a more sophisticated management of tasks and agent interactions, enhancing the bot's functionality in health data collection and analysis.
+
+## Code Optimization
+- Corrected and optimized the bot's code for improved functionality and syntax. This ensures smoother operation and a more intuitive user interaction flow.
+
+Pip installed all dependecies into conda env so I dont need to build the docker image on each test
+
+## Troubleshooting
+- Addressed and resolved issues related to the CrewAI library installation, ensuring compatibility and seamless operation in the development environment.
+-the "working_code.py" file will run outside of docker image. 
+-the bot.py code is not working...
+
 
 ## Next Steps:
 
 - Continue refining the conversation logic to ensure the bot conducts the health interview seamlessly.
+-edit code to create functional code for crewai to work
+-troubleshoot issue with crewai module not loading when docker package is built
 - Implement the remaining handlers for each state of the interview process.
 - Expand the bot's command set as planned.
 - Create a database structure for storing user responses.

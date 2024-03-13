@@ -2,7 +2,6 @@ import openai
 import os
 from crewai import Crew, Process, Task, Agent
 import logging
-from langchain_openai import ChatOpenAI
 from enum import Enum, auto
 from telegram import Update
 from telegram.ext import ApplicationBuilder, ContextTypes, MessageHandler, filters, CommandHandler
@@ -12,7 +11,6 @@ logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s
 telegram_token = os.environ["TELEGRAM_TOKEN"]
 openai.api_key = os.environ["OPENAI_TOKEN"]
 openai_version = os.environ["OPENAI_VERSION"]
-openai.api_key = os.environ["OPENAI_API_KEY"]
 
 messages_list = []
 
@@ -76,16 +74,6 @@ write_task = Task(
     async_execution=False,
     output_file='new-entry.csv'  # Example of output customization
 )
-#form the crew
-crew = Crew(
-  agents=[initial_interviewer, daily_interviewer],
-  tasks=[interview_task, write_task],
-  process=Process.sequential  # Optional: Sequential task execution is default
-)
-
-# Starting the task execution process with enhanced feedback
-result = crew.kickoff(inputs={'topic': 'AI in healthcare'})
-print(result)
 
 class InterviewState(Enum):
     WELCOME = auto()

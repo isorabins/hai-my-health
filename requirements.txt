@@ -1,5 +1,7 @@
 python-dotenv
 pandas
-openai==0.27.2
+openai==1.7.0
 python-telegram-bot==20.1
 pydub==0.25.1
+crewai
+#crewai[tools]

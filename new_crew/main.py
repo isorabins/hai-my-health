@@ -1,14 +1,9 @@
 from dotenv import load_dotenv
-load_dotenv()
-
 from crewai import Agent, Crew, Task
-
-
-
 from tasks import HealthCoachTasks
 from agents import HealthAgents
 
-
+load_dotenv()
 
 # Initialize the task and agent classes
 tasks = HealthCoachTasks()

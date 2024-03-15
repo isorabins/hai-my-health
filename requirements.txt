@@ -11,3 +11,4 @@ textwrap
 langchain
 nbformat
 config
+crewai[tools]

@@ -4,6 +4,11 @@ from crewai import Agent
 from textwrap import dedent
 from langchain.llms import OpenAI, Ollama
 from langchain_openai import ChatOpenAI
+from langchain.agents import load_tools
+from lanchain.tools import HumanInputTool
+
+# Load human input tools
+human_tools = HumanInputTool()
 
 
 # This is an example of how to define custom agents.
@@ -29,6 +34,7 @@ class HealthAgents:
             allow_delegation=False,
             verbose=True,
             llm=self.OpenAIGPT4,
+            tools=[human_tools]  # Include human input tools for the agent
         )
 
 
@@ -43,7 +49,7 @@ class HealthAgents:
             providing you with personalized weekly summaries that highlight trends and offer recommendations."""),
         allow_delegation=False,
         verbose=True,
-        llm=self.openAIGPT4,  
+        llm=self.OpenAIGPT4,  
     )
 
 

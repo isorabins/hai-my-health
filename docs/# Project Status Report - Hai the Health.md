@@ -104,6 +104,7 @@ Pip installed all dependecies into conda env so I dont need to build the docker 
 
 ## Next Steps:
 
+XXXXX - use this example as a template for my file structure and code: https://github.com/joaomdmoura/crewAI-examples/blob/main/starter_template/tasks.py
 - Continue refining the conversation logic to ensure the bot conducts the health interview seamlessly.
 -edit code to create functional code for crewai to work
 -troubleshoot issue with crewai module not loading when docker package is built
@@ -117,3 +118,14 @@ Pip installed all dependecies into conda env so I dont need to build the docker 
 
 - Security, scalability, and monitoring remain as ongoing concerns to address as development progresses.
 
+3/14
+conda env is new_hai
+got the test interface to work
+-chose the agent/task
+-had correct output
+
+need to figure out a way for it to take human input
+-trying to add the human tool
+
+try incorporating langraph
+-that may be the solution

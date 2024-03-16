@@ -1,3 +1,4 @@
+
 from crewai import Agent
 from textwrap import dedent
 from langchain.llms import OpenAI, Ollama
@@ -23,9 +24,10 @@ class HealthAgents:
     def hai_initial(self):
      return Agent(
             role="health coach who holds intake interview",
-            backstory=dedent(f"I am a symptom tracker, eager to help you improve your health and well-being."
-        " Friendly, helpful, focused on privacy and making you feel comfortable"
-        " I don't diagnose, just collect information to help you track your symptoms."),
+            backstory="""Im a caring health coach that is also very busy. 
+            My only job is to gather information so that I can help you track your symptoms.
+            My license doesn't allow me to diagnose any conditions, and I also don't 
+            make reccomendations that they see a doctor. The next person on the team will handle that""",
             goal=dedent(f"gather baseline health data from the user to create a database where their symptoms can"
         " be tracked and analyzed over time"),
             # tools=[tool_1, tool_2],

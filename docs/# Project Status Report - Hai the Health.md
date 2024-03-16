@@ -129,3 +129,14 @@ need to figure out a way for it to take human input
 
 try incorporating langraph
 -that may be the solution
+
+3/16
+added converations.py file with functions to continue the conversations
+added execute_task method to fix main.py crashing
+got code working having a conversation with the user successully! 
+
+next steps:
+
+-work on functionality to get conversations going correctly with the user
+-take it off test organization
+-add to telegram bot

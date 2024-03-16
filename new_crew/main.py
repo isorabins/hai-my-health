@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 from crewai import Agent, Crew, Task
 from tasks import HealthCoachTasks
 from agents import HealthAgents
+from conversation import have_conversation  # Import the have_conversation function
 
 load_dotenv()
 
@@ -13,7 +14,7 @@ print("## Welcome to 'Hai' the Health Coach Interface")
 print('------------------------------------------------')
 
 # For testing, we might want a simple command line interface
-action = input("Please select an action:\n1. Start Initial Interview\n2. Generate Health Insight\n3. Daily Check-in\n> ")
+action = input("Please select an action:\n1. Start Initial Interview\n2. Generate Health Insight\n3. Daily Check-in\n4. Have a Conversation\n> ")
 
 # Create Agents
 hai_initial_agent = agents.hai_initial()
@@ -35,19 +36,23 @@ elif action == "2":
 elif action == "3":
     selected_task = daily_checkin_task
     selected_agent = hai_daily_agent
+elif action == "4":
+    print("Starting a conversation with 'Hai'...")
+    have_conversation(hai_initial_agent)  # Call the have_conversation function with the desired agent
 else:
     print("Invalid selection. Exiting.")
     exit()
 
-# Create a Crew with the selected agent and task
-test_crew = Crew(
-    agents=[selected_agent],
-    tasks=[selected_task],
-    verbose=True
-)
+# Create a Crew with the selected agent and task (if action is not 4)
+if action != "4":
+    test_crew = Crew(
+        agents=[selected_agent],
+        tasks=[selected_task],
+        verbose=True
+    )
 
-# Kick off the selected task and print the result
-result = test_crew.kickoff()
+    # Kick off the selected task and print the result
+    result = test_crew.kickoff()
 
-print("\n## 'Hai' the Health Coach responds:")
-print(result)
+    print("\n## 'Hai' the Health Coach responds:")
+    print(result)

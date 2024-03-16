@@ -7,7 +7,6 @@ crewai
 #crewai[tools]
 langchain_openai
 decouple
-textwrap
 langchain
 nbformat
 config

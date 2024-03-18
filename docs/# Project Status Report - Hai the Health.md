@@ -1,5 +1,14 @@
 # Project Status Report - Hai the Health Coach
 
+**Date:** 3/17/24
+-tried changing the flow to split the initial interview into a task for each question, to improve the flow
+-was successful, but now the tasks run right after eachother without taking real use input or having a conversation
+
+Next steps:
+-work on the logic for agent to have a full conversation, but not followup more than once on each question, and make sure they ask the specific questions that are needed. 
+
+
+
 **Date:** 3/11/24
 
 ## Accomplishments to Date:

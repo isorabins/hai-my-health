@@ -1,14 +1,16 @@
 from dotenv import load_dotenv
-from crewai import Agent, Crew, Task
+from crewai import Crew
 from tasks import HealthCoachTasks
 from agents import HealthAgents
-from conversation import have_conversation  # Import the have_conversation function
+from conversation import have_conversation_through_tasks  # Adjusted function name
 
 load_dotenv()
 
-# Initialize the task and agent classes
-tasks = HealthCoachTasks()
+# Initialize the agent classes
 agents = HealthAgents()
+
+# Instance of HealthCoachTasks no longer needed as tasks are called directly from agent methods
+# Tasks are now more directly associated with agents in conversation flow
 
 print("## Welcome to 'Hai' the Health Coach Interface")
 print('------------------------------------------------')
@@ -16,43 +18,25 @@ print('------------------------------------------------')
 # For testing, we might want a simple command line interface
 action = input("Please select an action:\n1. Start Initial Interview\n2. Generate Health Insight\n3. Daily Check-in\n4. Have a Conversation\n> ")
 
-# Create Agents
-hai_initial_agent = agents.hai_initial()
-insight_generator_agent = agents.insight_generator_agent()
-hai_daily_agent = agents.hai_daily()
-
-# Define Tasks for each agent (for illustration, let's assume each method is already defined in HealthCoachTasks)
-initial_interview_task = tasks.initial_health_interview(hai_initial_agent)
-health_insight_task = tasks.weekly_health_insight(insight_generator_agent)
-daily_checkin_task = tasks.daily_symptom_checkin(hai_daily_agent)
-
-# Decide on action based on user input
+# Define the selected agent based on user input
 if action == "1":
-    selected_task = initial_interview_task
-    selected_agent = hai_initial_agent
+    selected_agent = agents.hai_initial()
 elif action == "2":
-    selected_task = health_insight_task
-    selected_agent = insight_generator_agent
+    selected_agent = agents.insight_generator_agent()
 elif action == "3":
-    selected_task = daily_checkin_task
-    selected_agent = hai_daily_agent
+    selected_agent = agents.hai_daily()
 elif action == "4":
     print("Starting a conversation with 'Hai'...")
-    have_conversation(hai_initial_agent)  # Call the have_conversation function with the desired agent
+    # Adjusted to start a conversation through tasks for a structured interview
+    have_conversation_through_tasks(agents.hai_initial())
 else:
     print("Invalid selection. Exiting.")
     exit()
 
-# Create a Crew with the selected agent and task (if action is not 4)
-if action != "4":
-    test_crew = Crew(
-        agents=[selected_agent],
-        tasks=[selected_task],
-        verbose=True
-    )
-
-    # Kick off the selected task and print the result
-    result = test_crew.kickoff()
-
-    print("\n## 'Hai' the Health Coach responds:")
-    print(result)
+# If action 1, 2, or 3 is selected, we execute the relevant task
+if action in ["1", "2", "3"]:
+    # For actions 1, 2, and 3, let's simulate the execution of a task
+    # In practice, you might adapt this section to better fit how you intend to use tasks and agents
+    print("\n## Simulating 'Hai' the Health Coach task execution for selected action...")
+    # A placeholder to represent task execution since actual task execution logic will vary
+    print(f"Task for action {action} executed with {selected_agent.role}.")

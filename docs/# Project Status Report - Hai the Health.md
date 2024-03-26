@@ -1,5 +1,73 @@
 # Project Status Report - Hai the Health Coach
 
+**Date:** 3/24/24
+Created a flow chart of the app user journey and considerations
+-file saved in "docs" folder
+
+Started work on the database
+-using sqlite in VSCode
+
+Considerations:
+-going to try to find a pre-existing db of food items, to lessen the number of dynamic catagories AI needs to create, and lessen errors
+-created a structure to seperate userID from email address, to improve privacy for users
+-AI will need to dynamically create catagories for specific health concerns that users list
+   -although I wonder if we could find a pre-existing DB with health issues that can be referenced?
+
+
+**Date:** 3/23/24
+
+
+DO FIRST:
+Create flow diagram of application
+-what is the user journey
+-how does it incorporate AI
+
+
+-created many different functions for each question
+   -solution isnt working
+
+Next steps:
+1.create a function that loops through a txt file of questions
+2.setup DB to store data
+3.setup daily interview that stores data
+   -use sequel lite db - its an easy way to startup/practice
+   -use first interview to set up catagories
+   -catagory answers need to be consistent across users
+      -can have dynamic catagories, but in each catagory value needs to be consistent
+      -use AI to normalize the catagory input
+      -create a rule for AI - write a function to normalize values
+      -our DB structure is in drive: "Hai health db idea"
+
+For me to learn:
+   -general database design/function
+Issue:
+   -how would we deal with diet. Since every person will have different diets, would we need to create a whole different catagory for each food they eat? Otherwise, how would we cross reference when trying to make correlations in the data for the user?
+   -can it be created dynamically when the user resonds?
+   -is there an existing DB that mentions all foods that we can use
+   -can DB be created/edited dynamically as user is answering questions, or does it need to be hard coded?
+
+
+looping over text file:
+FIRST STEP:
+-to do: edit questions to be final 
+-/n for line break after question
+-remove all other question functions
+SECOND STEP - once initial structure is complete:
+-what if person answers incorrectly, how can AI followu to clarify and normalize the catagory
+   -would create another function that takes task/question to check if answer is correct then if/else, ask a clarifying question
+
+TO DO:
+create a diagram of how I want the task/app to function
+-start with the initial interview
+   -ask the question
+   -give it to AI
+   -ask a followup question to clarify and normalize the data
+   in conversation.py:
+      -for tasks in task_file
+         -is function for the loop
+
+
+
 **Date:** 3/17/24
 -tried changing the flow to split the initial interview into a task for each question, to improve the flow
 -was successful, but now the tasks run right after eachother without taking real use input or having a conversation

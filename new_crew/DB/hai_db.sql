@@ -1,0 +1,5 @@
+CREATE TABLE Users (
+    user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL UNIQUE,
+    signup_date DATE NOT NULL
+);

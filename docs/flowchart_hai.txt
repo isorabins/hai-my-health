@@ -1,0 +1,58 @@
+  +--------------------------------+   
+  | 1. User Onboarding             |   
+  | - User activates with /start   |   
+  | - Bot explains its purpose     |   
+  +---------------+----------------+   
+                  |                    
+                  v                    
+  +---------------+----------------+   
+  | 2. Initial Health Interview    |   
+  | - Ask predefined questions     |   
+  | - Check for additional tracking|   
+  +---------------+----------------+   
+                  |                    
+   +--------------+--------------+     
+   |                             |     
+   v                             v     
++--+-----------------+     +-----+------------------+  
+| 3. Custom Tracking |     | 3.1 No Additional     |  
+| - Create dynamic   |     |     Tracking Required |  
+|   category         |     +-----------------------+  
++--------------------+             |                  
+                  |                |                  
+                  +-------+--------+                  
+                          |                           
+                          v                           
+  +-----------------------+-------------------------+
+  | 4. Data Normalization & Categorization          |
+  | - Normalize and categorize responses            |
+  | - Allow one follow-up question for clarity      |
+  +-------------------------------------------------+
+                          |
+                          v
+  +-----------------------+-------------------------+
+  | 5. Daily Check-Ins & Push Notifications         |
+  | - Send daily reminders for health updates       |
+  | - Include both predefined and custom categories |
+  +-------------------------------------------------+
+                          |
+                          v
+  +-----------------------+-------------------------+
+  | 6. Weekly Data Analysis                         |
+  | - Analyze data for correlations                 |
+  | - No direct health advice or diagnoses          |
+  +-------------------------------------------------+
+                          |
+                          v
+  +-----------------------+-------------------------+
+  | 7. Weekly Email Summaries                       |
+  | - Summarize significant findings                |
+  | - Suggest consultation with healthcare providers|
+  +-------------------------------------------------+
+                          |
+                          v
+  +-----------------------+-------------------------+
+  | 8. Feedback and Refinement                      |
+  | - Improve system based on user feedback         |
+  | - Continuously analyze interaction data         |
+  +-------------------------------------------------+

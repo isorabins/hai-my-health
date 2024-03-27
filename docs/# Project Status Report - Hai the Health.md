@@ -1,5 +1,77 @@
+Project Overview & Guidelines
+
+Welcome, and a heartfelt thank you for joining this impactful project. I'm Iso, an entrepreneur driven by the vision to democratize health tracking, making it accessible and beneficial for all. Together, we're on a mission to develop an app that enables individuals to monitor their health symptoms, thereby fostering a healthier community.
+
+Technical Setup:
+
+Operating System: macOS
+IDE: Visual Studio Code
+Programming Language: Python, with which I have basic familiarity
+While I can navigate the creation of .py files and execute them through the terminal in VSCode, my grasp of deeper programming concepts is still developing. Clear, straightforward explanations and step-by-step guidance will be incredibly valuable to me. See the end of this document for a project overiview.
+
+Expectations for Assistance:
+Efficiency and effectiveness are key to our progress. With this in mind, I have a specific request to streamline our collaboration:
+
+Direct Solutions: Fully functional code snippets are essential. I seek to avoid the pitfalls of pseudocode, aiming for solutions that work right out of the gate. This approach will help maintain our momentum and ensure we meet our objectives without delay.
+The work we are embarking on has the profound potential to positively impact lives. Your expertise, patience, and dedication are not only appreciated but essential as we undertake this journey together. Let’s join forces to make a meaningful difference!
+
+-------------
+
 # Project Status Report - Hai the Health Coach
 
+**Date:** 3/27/24
+working on getting the DB setup
+Running into an issue importing the compiled_conditions.csv into the DB
+heres an example of the error:
+/Users/isorabins/Desktop/GPT_AI/HAI_MY_HEALTH/new_hai/new_crew/DB/compiled_conditions.csv:196: unescaped " character
+/Users/isorabins/Desktop/GPT_AI/HAI_MY_HEALTH/new_hai/new_crew/DB/compiled_conditions.csv:193: expected 2 columns but found 5 - extras ignored
+-converted the file and re-formatted it
+-have tried formatting the file with "" etc
+this is an example of a line in the .csv: "Iron Deficiency Anemia","For anemia caused by lack of iron."
+and getting this error: 
+/Users/isorabins/Desktop/GPT_AI/HAI_MY_HEALTH/new_hai/new_crew/DB/compiled_conditions.csv:197: INSERT failed: datatype mismatch
+sqlite> 
+
+Below is an overview of the DB I've created. Been testing a bit, and seems some of the data isnt coming up correctly. Specifically
+that the health conditions didnt import
+Database Overview:
+The primary goal of your SQLite database is to support a health coaching application that can dynamically adapt to user inputs through initial and daily health interviews. The database is designed to store user accounts, their health conditions, daily check-ins, and related information to provide personalized health coaching. Key to this setup is the ability for the application to match user-described conditions to known health conditions stored in the database, leveraging natural language descriptions for effective mapping.
+
+Tables and Their Structure:
+Users Table (users):
+
+Stores information about users.
+Columns: user_id (INTEGER PRIMARY KEY AUTOINCREMENT), username (TEXT NOT NULL UNIQUE).
+User Emails Table (user_emails):
+
+Separates emails from the main user accounts for privacy.
+Columns: email_id (INTEGER PRIMARY KEY AUTOINCREMENT), user_id (INTEGER NOT NULL UNIQUE, FOREIGN KEY REFERENCES users(user_id)), email (TEXT NOT NULL UNIQUE).
+Initial Interviews Table (initial_interviews):
+
+Captures responses from the initial health interview with users.
+Columns include interview_id (INTEGER PRIMARY KEY AUTOINCREMENT), user_id (INTEGER, FOREIGN KEY REFERENCES users(user_id)), various TEXT columns for different interview questions like overall_feeling, sleep_quality, exercise_routine, mental_health, stress_level, health_goals, custom_condition, and interview_date (DATE NOT NULL).
+Daily Check-Ins Table (daily_check_ins):
+
+For recording daily health check-ins from users.
+Columns: check_in_id (INTEGER PRIMARY KEY AUTOINCREMENT), user_id (INTEGER, FOREIGN KEY REFERENCES users(user_id)), date (DATE NOT NULL), sleep_duration (REAL), exercise_duration (REAL), mood (TEXT), stress_level (INTEGER), additional_notes (TEXT).
+Health Conditions Table (health_conditions):
+
+Contains a list of known health conditions with descriptions.
+Columns: condition_id (INTEGER PRIMARY KEY AUTOINCREMENT), condition_name (TEXT NOT NULL), description (TEXT).
+Common Foods Table (common_foods):
+
+A reference table for common foods.
+Columns: food_id (INTEGER PRIMARY KEY AUTOINCREMENT), food_name (TEXT NOT NULL), category (TEXT), nutritional_info (TEXT).
+User Conditions Table (user_conditions):
+
+Links users to health conditions they've mentioned or been diagnosed with.
+Columns: user_condition_id (INTEGER PRIMARY KEY AUTOINCREMENT), user_id (INTEGER, FOREIGN KEY REFERENCES users(user_id)), condition_id (INTEGER, FOREIGN KEY REFERENCES health_conditions(condition_id)), notes (TEXT), date_noted (DATE).
+User Food Intake Table (user_food_intake):
+
+Records food intake by users, referencing the common foods table.
+Columns: food_intake_id (INTEGER PRIMARY KEY AUTOINCREMENT), user_id (INTEGER, FOREIGN KEY REFERENCES users(user_id)), food_id (INTEGER, FOREIGN KEY REFERENCES common_foods(food_id)), meal_type (TEXT), intake_date (DATE NOT NULL).
+
+Figured it out! There were a bunch of "", and needed to go through and remove them, imported now!
 **Date:** 3/24/2
 -working on creating the DB
    -creating a csv of 200 common health conditions
@@ -238,3 +310,86 @@ next steps:
 -work on functionality to get conversations going correctly with the user
 -take it off test organization
 -add to telegram bot
+
+
+
+
+
+# Project Status Report - Hai the Health Coach
+
+**Date:** 3/11/24
+
+## Accomplishments to Date:
+
+1. **Project Initialization**
+   - Created a new Python virtual environment named `new_hai`.
+   - Set up a new GitHub repository and synced it with local development using Git CLI.
+   - Initialized the project directory structure with folders for `docs`, `src`, and `tests`.
+
+2. **Telegram Bot Setup**
+   - Registered a new bot on Telegram via BotFather and retrieved the API token.
+   - Installed the `python-telegram-bot` library to interact with the Telegram API.
+   - Installed `python-dotenv` for environment variable management.
+
+3. **Basic Bot Functionality**
+   - Created `main.py` within the `src` directory as the entry point for the bot.
+   - Implemented a basic `/start` command for the bot to greet users.
+   - Set up an environment variable `TELEGRAM_TOKEN` to securely store the API token.
+   - Ensured sensitive files like `.env` are listed in `.gitignore` to prevent them from being pushed to GitHub.
+
+4. **Docker Integration**
+   - Integrated Docker to ensure consistency across development, testing, and production environments.
+   - Added `Dockerfile` and `docker-compose.yaml` for containerization and easy deployment.
+
+5. **Bot Functional Enhancements**
+   - Updated the bot to interact with OpenAI's GPT-4 for natural language processing, enhancing conversational capabilities.
+   - Implemented functionality to handle both text and audio messages.
+   - **New**: The bot now starts asking initial health questions as part of the conversation flow.
+
+6. **GitHub Version Control**
+   - Pushed updates to GitHub, ensuring all changes are version-controlled.
+   - Created a new branch `feature_initial_interview` for developing the initial interview feature without affecting the main codebase.
+
+## Next Steps:
+
+1. **Expand Bot Commands**
+   - Implement additional bot commands (`/help`, `/checkin`, etc.).
+   - Develop a system for the bot to handle more complex interactions, possibly with `ConversationHandler`.
+   - edit bot commands so interview continues
+	-currently only asking "how's your health overall" and then asking "is there anything else youd like to add?"
+
+2. **Initial Interview Implementation**
+   - Incorporate the initial interview questions into the bot's conversation flow, leveraging GPT-4 for dynamic question generation and follow-ups.
+
+3. **Data Storage**
+   - Decide on a database system (e.g., SQLite for simplicity, PostgreSQL for robustness) for storing user data and conversation states.
+   - Create models and schemas for the required data.
+   - Implement data persistence for bot conversations and user data.
+
+4. **Periodic Notifications and Reporting**
+   - Set up a job queue to send periodic reminders and health reports to users.
+
+5. **Testing and Quality Assurance**
+   - Write unit tests for individual bot functionalities.
+   - Create integration tests to simulate user interactions with the bot.
+
+6. **Documentation**
+   - Document the bot's features, usage instructions, setup process, and contribution guidelines in the `docs` folder.
+
+7. **User Feedback**
+   - Deploy a minimum viable product (MVP) to a small group of test users.
+   - Collect feedback and iterate on the bot features based on user input.
+
+8. **Deployment**
+   - Prepare for deployment to a cloud platform for continuous uptime.
+   - Set up a CI/CD pipeline if necessary for automated testing and deployment.
+
+9. **Continuous Development**
+   - Continue developing features, refining the bot based on user feedback.
+   - Keep the documentation updated as the project evolves.
+
+## Additional Considerations:
+
+- **Security:** Ensure all user data is handled securely and complies with privacy laws.
+- **Scalability:** Design the bot's architecture to handle an increasing number of users as the project grows.
+- **Monitoring and Maintenance:** Establish a system for monitoring the bot's health and uptime and for performing regular maintenance.

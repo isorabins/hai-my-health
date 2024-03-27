@@ -1,5 +1,21 @@
 # Project Status Report - Hai the Health Coach
 
+**Date:** 3/24/2
+-working on creating the DB
+   -creating a csv of 200 common health conditions
+   -working on sourcing a DB of common foods
+   -details of how Im thinking of the db
+      -Idea would be to link the list of conditions and foods to the main DB, so it would
+      fill in that cataogry when a user mentions a certain item. This would reduce the need
+      for the AI to create its own catagories and increase normalization across the DB
+      -want to seperate email address from health data asd much as possible for privacy
+         -creating a seperate table for email and linked to userid with a foreign key
+
+   Starting to create the DB
+   -created all the tables
+   -having trouble importing the conditions CSV, getting an error that there is a column mismatch, expecting 3 but getting 2
+   -GPT says that it looks fine though, and that the 3rd is the condition_id so is supposed to be missing and auto filled
+   in later...need to troubleshoot. 
 **Date:** 3/24/24
 Created a flow chart of the app user journey and considerations
 -file saved in "docs" folder
@@ -9,9 +25,14 @@ Started work on the database
 
 Considerations:
 -going to try to find a pre-existing db of food items, to lessen the number of dynamic catagories AI needs to create, and lessen errors
+   -need normalization using AI in case user mentions something similar that isnt on the list
+
 -created a structure to seperate userID from email address, to improve privacy for users
 -AI will need to dynamically create catagories for specific health concerns that users list
    -although I wonder if we could find a pre-existing DB with health issues that can be referenced?
+
+-want AI to be able to dynamically create catagories as needed
+   -not sure how this actually works
 
 
 **Date:** 3/23/24

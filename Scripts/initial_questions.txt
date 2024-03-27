@@ -8,6 +8,8 @@ Sleep Quality: "How well did you sleep last night? Feel free to use any terms or
 
 Exercise Routine: "Tell me about your exercise routine. Have there been any changes or anything new you've tried?"
 
+Bowel movement: Use the standardized table (not sure what its called)
+
 Mental Health Check: "How's your mood been lately? If you're comfortable, share how you've been feeling emotionally."
 
 Stress Levels: "On a scale from 1 to 10, how would you rate your stress levels recently?"

@@ -16,6 +16,10 @@ Direct Solutions: Fully functional code snippets are essential. I seek to avoid 
 The work we are embarking on has the profound potential to positively impact lives. Your expertise, patience, and dedication are not only appreciated but essential as we undertake this journey together. Let’s join forces to make a meaningful difference!
 
 -------------
+TO WORK ON/SOLVE:
+
+create loop for questions in initial interview
+setup DB correctly to store data
 
 # Project Status Report - Hai the Health Coach
 
@@ -31,6 +35,8 @@ this is an example of a line in the .csv: "Iron Deficiency Anemia","For anemia c
 and getting this error: 
 /Users/isorabins/Desktop/GPT_AI/HAI_MY_HEALTH/new_hai/new_crew/DB/compiled_conditions.csv:197: INSERT failed: datatype mismatch
 sqlite> 
+
+NEXT 
 
 Below is an overview of the DB I've created. Been testing a bit, and seems some of the data isnt coming up correctly. Specifically
 that the health conditions didnt import
@@ -71,7 +77,7 @@ User Food Intake Table (user_food_intake):
 Records food intake by users, referencing the common foods table.
 Columns: food_intake_id (INTEGER PRIMARY KEY AUTOINCREMENT), user_id (INTEGER, FOREIGN KEY REFERENCES users(user_id)), food_id (INTEGER, FOREIGN KEY REFERENCES common_foods(food_id)), meal_type (TEXT), intake_date (DATE NOT NULL).
 
-Figured it out! There were a bunch of "", and needed to go through and remove them, imported now!
+
 **Date:** 3/24/2
 -working on creating the DB
    -creating a csv of 200 common health conditions
